@@ -126,6 +126,37 @@
         </div>
       </div>
     </section>
+    <section id="image-slider">
+      <h2>Explore Our Camping Destinations</h2>
+      <div class="slider">
+        <div class="slides">
+          <div class="slide">
+            <img src="images/Virginia.png" alt="Destination 1" />
+            <div class="slide-title">
+              Campsite Location: Yellowstone National Park
+            </div>
+          </div>
+          <div class="slide">
+            <img src="images/texas.png" alt="Destination 2" />
+            <div class="slide-title">Campsite Location: Grand Canyon</div>
+          </div>
+          <div class="slide">
+            <img src="images/Maine.png" alt="Destination 3" />
+            <div class="slide-title">
+              Campsite Location: Yosemite National Park
+            </div>
+          </div>
+          <div class="slide">
+            <img src="images/idaho.png" alt="Destination 2" />
+            <div class="slide-title">Campsite Location: Idaho</div>
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+      </div>
+    </section>
+
     <section id="testimonials">
       <h2>What Our Users Say</h2>
       <div class="testimonial-cards">
@@ -236,6 +267,13 @@
         </tbody>
       </table>
     </section>
+    <section id="weather">
+      <h2>Current Weather</h2>
+      <div id="weather-info">
+        <p>Loading weather data...</p>
+      </div>
+    </section>
+
     <footer id="footer">
       <p>&copy; 2024 Camping Trip Planner</p>
       <p>
@@ -243,5 +281,6 @@
         <a href="#">Twitter</a>
       </p>
     </footer>
+    <script src="main.js"></script>
   </body>
 </html>
