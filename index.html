@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camping Trip Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <div id="navbar">
+        <ul>
+          <li><a href="#background">Home</a></li>
+          <li><a href="#plan-trip">Plan A Trip</a></li>
+          <li><a href="#features">Why Choose Us?</a></li>
+          <li><a href="#testimonials">What Our Users Say</a></li>
+          <li><a href="#data">Trip Data</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="background">
+      <img src="images/background.jpg" alt="background" />
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="title">
+          <h1>Camping Trip Planner</h1>
+          <p>Your adventure starts here - plan, pack, and explore!</p>
+        </div>
+        <div class="cta">
+          <a href="#plan-trip">
+            <button class="btn-45"><span>Plan a Trip</span></button></a
+          >
+        </div>
+      </div>
+    </div>
+    <section id="plan-trip">
+      <h2>Plan Your Trip</h2>
+      <form>
+        <label for="trip-name">Trip Name:</label>
+        <input type="text" id="trip-name" name="trip-name" required />
+
+        <label for="trip-date">Date:</label>
+        <input type="date" id="trip-date" name="trip-date" required />
+
+        <label for="trip-location">Location:</label>
+        <input type="text" id="trip-location" name="trip-location" required />
+
+        <label for="trip-people">Number of People:</label>
+        <input type="number" id="trip-people" name="trip-people" required />
+
+        <label for="camping-equipment">Camping Equipment:</label>
+        <div class="equipment-list">
+          <label
+            ><input type="checkbox" name="equipment" value="Tent" /> Tent</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Sleeping Bag" />
+            Sleeping Bag</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Backpack" />
+            Backpack</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="First Aid Kit" />
+            First Aid Kit</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Cooking Gear" />
+            Cooking Gear</label
+          >
+          <!-- Add more equipment as needed -->
+        </div>
+
+        <label for="trip-notes">Additional Notes:</label>
+        <textarea
+          id="trip-notes"
+          name="trip-notes"
+          rows="4"
+          placeholder="Enter any additional notes..."
+        ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="features">
+      <h2>Why Choose Us?</h2>
+      <div class="cards">
+        <div class="card card-1">
+          <div class="overlay"></div>
+          <div class="card-inner">
+            <div class="card-front">
+              <h3>Easy Planning</h3>
+            </div>
+            <div class="card-back">
+              <p>Plan your trips effortlessly with our intuitive interface.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card card-2">
+          <div class="overlay"></div>
+          <div class="card-inner">
+            <div class="card-front">
+              <h3>Packing Lists</h3>
+            </div>
+            <div class="card-back">
+              <p>Never forget an essential item again.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card card-3">
+          <div class="overlay"></div>
+          <div class="card-inner">
+            <div class="card-front">
+              <h3>Custom Itineraries</h3>
+            </div>
+            <div class="card-back">
+              <p>Organize your days and activities with ease.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="testimonials">
+      <h2>What Our Users Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <div class="user-photo-container">
+            <img src="images/avatar1.png" alt="User 1" class="user-photo" />
+          </div>
+          <h3>Jane Doe</h3>
+          <p>
+            "This app made my camping trip a breeze! I usually struggle with
+            organizing all the details and often end up forgetting something
+            important!"
+          </p>
+          <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="user-photo-container">
+            <img src="images/avatar2.png" alt="User 2" class="user-photo" />
+          </div>
+          <h3>John Smith</h3>
+          <p>
+            "A must-have for all outdoor enthusiasts. As an avid camper, I've
+            tried multiple planning tools, but nothing comes close to the
+            Camping Trip Planner!"
+          </p>
+          <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="user-photo-container">
+            <img src="images/avatar3.png" alt="User 3" class="user-photo" />
+          </div>
+          <h3>Emily Johnson</h3>
+          <p>
+            "The Camping Trip Planner is a game-changer for anyone who loves the
+            outdoors. I loved how I could easily create a trip, input all the
+            details, and keep everything organized in one place."
+          </p>
+          <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="data">
+      <h2>Trip Data</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Trip Name</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Location</th>
+            <th>Number of Persons</th>
+            <th>Additional Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Example Trip</td>
+            <td>2024-07-01</td>
+            <td>2024-07-05</td>
+            <td>Yosemite National Park</td>
+            <td>4</td>
+            <td>Bring extra water</td>
+          </tr>
+          <tr>
+            <td>Example Trip</td>
+            <td>2024-07-01</td>
+            <td>2024-07-05</td>
+            <td>Yosemite National Park</td>
+            <td>4</td>
+            <td>Bring extra water</td>
+          </tr>
+          <tr>
+            <td>Example Trip</td>
+            <td>2024-07-01</td>
+            <td>2024-07-05</td>
+            <td>Yosemite National Park</td>
+            <td>4</td>
+            <td>Bring extra water</td>
+          </tr>
+          <tr>
+            <td>Example Trip</td>
+            <td>2024-07-01</td>
+            <td>2024-07-05</td>
+            <td>Yosemite National Park</td>
+            <td>4</td>
+            <td>Bring extra water</td>
+          </tr>
+          <!-- More trips can be added here -->
+        </tbody>
+      </table>
+    </section>
+    <footer id="footer">
+      <p>&copy; 2024 Camping Trip Planner</p>
+      <p>
+        Follow us on <a href="#">Facebook</a> | <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </p>
+    </footer>
+  </body>
+</html>
