@@ -397,7 +397,8 @@ form button:hover {
   border-radius: 0 0 8px 8px;
 }
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -420,7 +421,8 @@ form button:hover {
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -428,7 +430,6 @@ form button:hover {
   opacity: 1 !important;
   position: relative !important;
 }
-
 
 #testimonials {
   padding: 50px 0;
