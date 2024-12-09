@@ -34,16 +34,12 @@ The Camping Trip Planner is a web application designed to help users organize an
 ## Getting Started
 To get a local copy up and running, follow these simple steps.
 
-### Prerequisites
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
-
 ### Installation
 1. Clone the repository:
    sh
    git clone https://github.com/your-username/camping-trip-planner.git
 
-   2. Navigate to the project directory:
+2. Navigate to the project directory:
 sh
 cd camping-trip-planner
 
