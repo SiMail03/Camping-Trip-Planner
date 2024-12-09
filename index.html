@@ -17,8 +17,10 @@
           <li><a href="#background">Home</a></li>
           <li><a href="#plan-trip">Plan A Trip</a></li>
           <li><a href="#features">Why Choose Us?</a></li>
+          <li><a href="#image-slider">Camping Destinations</a></li>
           <li><a href="#testimonials">What Our Users Say</a></li>
           <li><a href="#data">Trip Data</a></li>
+          <li><a href="#weather">Weather</a></li>
         </ul>
       </div>
     </header>
@@ -39,7 +41,7 @@
     </div>
     <section id="plan-trip">
       <h2>Plan Your Trip</h2>
-      <form>
+      <form id="trip-form">
         <label for="trip-name">Trip Name:</label>
         <input type="text" id="trip-name" name="trip-name" required />
 
@@ -73,7 +75,64 @@
             ><input type="checkbox" name="equipment" value="Cooking Gear" />
             Cooking Gear</label
           >
-          <!-- Add more equipment as needed -->
+          <label
+            ><input type="checkbox" name="equipment" value="Lantern" />
+            Lantern</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Flashlight" />
+            Flashlight</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Camping Stove" />
+            Camping Stove</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Matches" />
+            Matches</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Sleeping Pad" />
+            Sleeping Pad</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Water Bottle" />
+            Water Bottle</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Hiking Boots" />
+            Hiking Boots</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Map" /> Map</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Compass" />
+            Compass</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Sunscreen" />
+            Sunscreen</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Insect Repellent" />
+            Insect Repellent</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Portable Charger" />
+            Portable Charger</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Hat" /> Hat</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Rain Jacket" /> Rain
+            Jacket</label
+          >
+          <label
+            ><input type="checkbox" name="equipment" value="Multi-Tool" />
+            Multi-Tool</label
+          >
         </div>
 
         <label for="trip-notes">Additional Notes:</label>
@@ -86,6 +145,25 @@
 
         <button type="submit">Submit</button>
       </form>
+    </section>
+
+    <section id="data">
+      <h2>Trip Data</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Trip Name</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Number of People</th>
+            <th>Camping Equipment</th>
+            <th>Additional Notes</th>
+          </tr>
+        </thead>
+        <tbody id="trip-data">
+          <!-- Dynamic trip data will be inserted here -->
+        </tbody>
+      </table>
     </section>
 
     <section id="features">
@@ -217,56 +295,6 @@
       </div>
     </section>
 
-    <section id="data">
-      <h2>Trip Data</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Trip Name</th>
-            <th>Check In</th>
-            <th>Check Out</th>
-            <th>Location</th>
-            <th>Number of Persons</th>
-            <th>Additional Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Example Trip</td>
-            <td>2024-07-01</td>
-            <td>2024-07-05</td>
-            <td>Yosemite National Park</td>
-            <td>4</td>
-            <td>Bring extra water</td>
-          </tr>
-          <tr>
-            <td>Example Trip</td>
-            <td>2024-07-01</td>
-            <td>2024-07-05</td>
-            <td>Yosemite National Park</td>
-            <td>4</td>
-            <td>Bring extra water</td>
-          </tr>
-          <tr>
-            <td>Example Trip</td>
-            <td>2024-07-01</td>
-            <td>2024-07-05</td>
-            <td>Yosemite National Park</td>
-            <td>4</td>
-            <td>Bring extra water</td>
-          </tr>
-          <tr>
-            <td>Example Trip</td>
-            <td>2024-07-01</td>
-            <td>2024-07-05</td>
-            <td>Yosemite National Park</td>
-            <td>4</td>
-            <td>Bring extra water</td>
-          </tr>
-          <!-- More trips can be added here -->
-        </tbody>
-      </table>
-    </section>
     <section id="weather">
       <h2>Current Weather</h2>
       <div id="weather-info">

@@ -102,3 +102,52 @@ showSlides();
 setInterval(() => {
   plusSlides(1);
 }, 5000); // Change slide every 5 seconds
+
+document
+  .getElementById("trip-form")
+  .addEventListener("submit", function (event) {
+    // Ensure at least one checkbox is selected
+    const equipmentChecked = document.querySelectorAll(
+      'input[name="equipment"]:checked'
+    );
+    if (equipmentChecked.length === 0) {
+      alert("Please select at least one camping equipment.");
+      event.preventDefault();
+      return;
+    }
+
+    event.preventDefault();
+
+    // Get form data
+    const tripName = document.getElementById("trip-name").value;
+    const tripDate = document.getElementById("trip-date").value;
+    const tripLocation = document.getElementById("trip-location").value;
+    const tripPeople = document.getElementById("trip-people").value;
+    const tripNotes = document.getElementById("trip-notes").value;
+
+    // Get selected equipment
+    const equipment = [];
+    document
+      .querySelectorAll('input[name="equipment"]:checked')
+      .forEach((checkbox) => {
+        equipment.push(checkbox.value);
+      });
+
+    // Create a new row for the table
+    const newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+    <td>${tripName}</td>
+    <td>${tripDate}</td>
+    <td>${tripLocation}</td>
+    <td>${tripPeople}</td>
+    <td>${equipment.join(", ")}</td>
+    <td>${tripNotes}</td>
+  `;
+
+    // Append the new row to the table body
+    document.getElementById("trip-data").appendChild(newRow);
+
+    // Clear the form
+    document.getElementById("trip-form").reset();
+  });
