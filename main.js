@@ -1,17 +1,8 @@
 // JavaScript for fetching weather data and updating the weather section
-const weatherApiKey = "CDYseQDMxdaMAoWYkyoiQq42Uf7IqpQN";
-const weatherLocation = "Sarajevo";
-
-const weatherApiUrl = `https://api.tomorrow.io/v4/timelines?location=${weatherLocation}&fields=temperature&fields=weatherCode&timesteps=1d&units=metric&apikey=${weatherApiKey}`;
-
 const updateWeather = () => {
-  fetch(weatherApiUrl)
-    .then((response) => {
-      console.log("Response:", response);
-      return response.json();
-    })
+  fetch("http://localhost:3000/weather")
+    .then((response) => response.json())
     .then((data) => {
-      console.log("Data:", data);
       const weatherInfo = document.getElementById("weather-info");
       weatherInfo.innerHTML = ""; // Clear existing content
 

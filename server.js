@@ -1,10 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const axios = require("axios");
 const fs = require("fs");
 
 const app = express();
 const port = 3000;
 const dataFile = "trips.json";
+
+// Load environment variables from a .env file
+require("dotenv").config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,10 +32,24 @@ app.options("*", (req, res) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.sendStatus(200);
+  res.sendStatus(200); // Respond with 200 status for preflight
 });
 
-// Routes
+// Fetch API key
+app.get("/weather", async (req, res) => {
+  const weatherLocation = "Sarajevo";
+  const weatherApiKey = process.env.WEATHER_API_KEY;
+  const weatherApiUrl = `https://api.tomorrow.io/v4/timelines?location=${weatherLocation}&fields=temperature&fields=weatherCode&timesteps=1d&units=metric&apikey=${weatherApiKey}`;
+
+  try {
+    const response = await axios.get(weatherApiUrl);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch weather data" });
+  }
+});
+
+// Load trips
 app.get("/load-trips", (req, res) => {
   fs.readFile(dataFile, (err, data) => {
     if (err) {
@@ -41,6 +59,7 @@ app.get("/load-trips", (req, res) => {
   });
 });
 
+// Save trip
 app.post("/save-trip", (req, res) => {
   const trip = req.body;
   fs.readFile(dataFile, (err, data) => {
@@ -65,6 +84,7 @@ app.post("/save-trip", (req, res) => {
   });
 });
 
+// Delete trip
 app.delete("/delete-trip", (req, res) => {
   const tripName = req.body.tripName;
   fs.readFile(dataFile, (err, data) => {
