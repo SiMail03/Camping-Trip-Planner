@@ -106,16 +106,6 @@ setInterval(() => {
 document
   .getElementById("trip-form")
   .addEventListener("submit", function (event) {
-    // Ensure at least one checkbox is selected
-    const equipmentChecked = document.querySelectorAll(
-      'input[name="equipment"]:checked'
-    );
-    if (equipmentChecked.length === 0) {
-      alert("Please select at least one camping equipment.");
-      event.preventDefault();
-      return;
-    }
-
     event.preventDefault();
 
     // Get form data
@@ -133,21 +123,83 @@ document
         equipment.push(checkbox.value);
       });
 
-    // Create a new row for the table
-    const newRow = document.createElement("tr");
+    // Create trip data object
+    const tripData = {
+      tripName,
+      tripDate,
+      tripLocation,
+      tripPeople,
+      equipment,
+      tripNotes,
+    };
 
-    newRow.innerHTML = `
-    <td>${tripName}</td>
-    <td>${tripDate}</td>
-    <td>${tripLocation}</td>
-    <td>${tripPeople}</td>
-    <td>${equipment.join(", ")}</td>
-    <td>${tripNotes}</td>
+    // Send data to server using AJAX
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:3000/save-trip", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          // Alert the user
+
+          // Add the new trip data to the table
+          addTripToTable(tripData);
+
+          // Clear the form
+          document.getElementById("trip-form").reset();
+        } else {
+          console.error("Error saving trip:", xhr.responseText);
+        }
+      }
+    };
+    xhr.send(JSON.stringify(tripData));
+  });
+
+window.onload = function () {
+  // Load trip data from server
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://localhost:3000/load-trips", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const trips = JSON.parse(xhr.responseText);
+      trips.forEach((trip) => addTripToTable(trip));
+    }
+  };
+  xhr.send();
+};
+
+function addTripToTable(trip) {
+  const tripDataContainer = document.getElementById("trip-data");
+  const newRow = document.createElement("tr");
+
+  newRow.innerHTML = `
+    <td>${trip.tripName}</td>
+    <td>${trip.tripDate}</td>
+    <td>${trip.tripLocation}</td>
+    <td>${trip.tripPeople}</td>
+    <td>${trip.equipment.join(", ")}</td>
+    <td>${trip.tripNotes}</td>
+    <td><button class="delete-btn" onclick="deleteTrip('${
+      trip.tripName
+    }', this)">Delete</button></td>
   `;
 
-    // Append the new row to the table body
-    document.getElementById("trip-data").appendChild(newRow);
+  tripDataContainer.appendChild(newRow);
+}
 
-    // Clear the form
-    document.getElementById("trip-form").reset();
-  });
+function deleteTrip(tripName, button) {
+  // Send delete request to server
+  const xhr = new XMLHttpRequest();
+  xhr.open("DELETE", "http://localhost:3000/delete-trip", true);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Remove the row from the table
+      const row = button.closest("tr");
+      row.remove();
+    } else {
+      console.error("Error deleting trip:", xhr.responseText);
+    }
+  };
+  xhr.send(JSON.stringify({ tripName }));
+}
