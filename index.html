@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Camping Trip Planner</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="output.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -24,13 +24,20 @@
         </ul>
       </div>
     </header>
-    <div id="background">
+
+    <div
+      id="background"
+      class="relative h-screen bg-cover bg-center"
+      style="background-image: url('images/background.jpg')"
+    >
       <img src="images/background.jpg" alt="background" />
       <div class="overlay"></div>
       <div class="content">
         <div class="title">
-          <h1>Camping Trip Planner</h1>
-          <p>Your adventure starts here - plan, pack, and explore!</p>
+          <h1 class="text-5xl font-bold mb-4">Camping Trip Planner</h1>
+          <p class="text-2xl mb-6">
+            Your adventure starts here - plan, pack, and explore!
+          </p>
         </div>
         <div class="cta">
           <a href="#plan-trip">
@@ -39,116 +46,261 @@
         </div>
       </div>
     </div>
-    <section id="plan-trip">
-      <h2>Plan Your Trip</h2>
-      <form id="trip-form">
-        <label for="trip-name">Trip Name:</label>
-        <input type="text" id="trip-name" name="trip-name" required />
-
-        <label for="trip-date">Date:</label>
-        <input type="date" id="trip-date" name="trip-date" required />
-
-        <label for="trip-location">Location:</label>
-        <input type="text" id="trip-location" name="trip-location" required />
-
-        <label for="trip-people">Number of People:</label>
-        <input type="number" id="trip-people" name="trip-people" required />
-
-        <label for="camping-equipment">Camping Equipment:</label>
-        <div class="equipment-list">
-          <label
-            ><input type="checkbox" name="equipment" value="Tent" /> Tent</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Sleeping Bag" />
-            Sleeping Bag</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Backpack" />
-            Backpack</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="First Aid Kit" />
-            First Aid Kit</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Cooking Gear" />
-            Cooking Gear</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Lantern" />
-            Lantern</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Flashlight" />
-            Flashlight</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Camping Stove" />
-            Camping Stove</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Matches" />
-            Matches</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Sleeping Pad" />
-            Sleeping Pad</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Water Bottle" />
-            Water Bottle</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Hiking Boots" />
-            Hiking Boots</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Map" /> Map</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Compass" />
-            Compass</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Sunscreen" />
-            Sunscreen</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Insect Repellent" />
-            Insect Repellent</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Portable Charger" />
-            Portable Charger</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Hat" /> Hat</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Rain Jacket" /> Rain
-            Jacket</label
-          >
-          <label
-            ><input type="checkbox" name="equipment" value="Multi-Tool" />
-            Multi-Tool</label
-          >
+    <section id="plan-trip" class="py-12">
+      <h2 class="text-3xl font-semibold text-center mb-6">Plan Your Trip</h2>
+      <form id="trip-form" class="max-w-3xl mx-auto space-y-4">
+        <div class="space-y-2">
+          <label for="trip-name" class="block text-lg">Trip Name:</label>
+          <input
+            type="text"
+            id="trip-name"
+            name="trip-name"
+            required
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
-
-        <label for="trip-notes">Additional Notes:</label>
-        <textarea
-          id="trip-notes"
-          name="trip-notes"
-          rows="4"
-          placeholder="Enter any additional notes..."
-        ></textarea>
-
-        <button type="submit">Submit</button>
+        <div class="space-y-2">
+          <label for="trip-date" class="block text-lg">Date:</label>
+          <input
+            type="date"
+            id="trip-date"
+            name="trip-date"
+            required
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div class="space-y-2">
+          <label for="trip-location" class="block text-lg">Location:</label>
+          <input
+            type="text"
+            id="trip-location"
+            name="trip-location"
+            required
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div class="space-y-2">
+          <label for="trip-people" class="block text-lg"
+            >Number of People:</label
+          >
+          <input
+            type="number"
+            id="trip-people"
+            name="trip-people"
+            required
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div class="space-y-2">
+          <label for="camping-equipment" class="block text-lg"
+            >Camping Equipment:</label
+          >
+          <div class="space-y-1">
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Tent"
+                class="mr-2"
+              />
+              Tent</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Sleeping Bag"
+                class="mr-2"
+              />
+              Sleeping Bag</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Backpack"
+                class="mr-2"
+              />
+              Backpack</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="First Aid Kit"
+                class="mr-2"
+              />
+              First Aid Kit</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Cooking Gear"
+                class="mr-2"
+              />
+              Cooking Gear</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Lantern"
+                class="mr-2"
+              />
+              Lantern</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Flashlight"
+                class="mr-2"
+              />
+              Flashlight</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Camping Stove"
+                class="mr-2"
+              />
+              Camping Stove</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Matches"
+                class="mr-2"
+              />
+              Matches</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Sleeping Pad"
+                class="mr-2"
+              />
+              Sleeping Pad</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Water Bottle"
+                class="mr-2"
+              />
+              Water Bottle</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Hiking Boots"
+                class="mr-2"
+              />
+              Hiking Boots</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Map"
+                class="mr-2"
+              />
+              Map</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Compass"
+                class="mr-2"
+              />
+              Compass</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Sunscreen"
+                class="mr-2"
+              />
+              Sunscreen</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Insect Repellent"
+                class="mr-2"
+              />
+              Insect Repellent</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Portable Charger"
+                class="mr-2"
+              />
+              Portable Charger</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Hat"
+                class="mr-2"
+              />
+              Hat</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Rain Jacket"
+                class="mr-2"
+              />
+              Rain Jacket</label
+            >
+            <label class="flex items-center"
+              ><input
+                type="checkbox"
+                name="equipment"
+                value="Multi-Tool"
+                class="mr-2"
+              />
+              Multi-Tool</label
+            >
+            <!-- Repeat for other items -->
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label for="trip-notes" class="block text-lg"
+            >Additional Notes:</label
+          >
+          <textarea
+            id="trip-notes"
+            name="trip-notes"
+            rows="4"
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-all"
+        >
+          Submit
+        </button>
       </form>
     </section>
 
     <section id="data">
-      <h2>Trip Data</h2>
+      <h2 class="text-3xl font-semibold text-center mb-6">Trip Data</h2>
       <table>
         <thead>
           <tr>
@@ -167,17 +319,19 @@
       </table>
     </section>
 
-    <section id="features">
-      <h2>Why Choose Us?</h2>
+    <section id="features" class="py-12 bg-gray-50">
+      <h2 class="text-3xl font-semibold text-center mb-6">Why Choose Us?</h2>
       <div class="cards">
         <div class="card card-1">
           <div class="overlay"></div>
           <div class="card-inner">
             <div class="card-front">
-              <h3>Easy Planning</h3>
+              <h3 class="font-bold">Easy Planning</h3>
             </div>
             <div class="card-back">
-              <p>Plan your trips effortlessly with our intuitive interface.</p>
+              <p class="font-bold text-center">
+                Plan your trips effortlessly with our intuitive interface.
+              </p>
             </div>
           </div>
         </div>
@@ -185,10 +339,12 @@
           <div class="overlay"></div>
           <div class="card-inner">
             <div class="card-front">
-              <h3>Packing Lists</h3>
+              <h3 class="font-bold">Packing Lists</h3>
             </div>
             <div class="card-back">
-              <p>Never forget an essential item again.</p>
+              <p class="font-bold text-center">
+                Never forget an essential item again.
+              </p>
             </div>
           </div>
         </div>
@@ -196,17 +352,21 @@
           <div class="overlay"></div>
           <div class="card-inner">
             <div class="card-front">
-              <h3>Custom Itineraries</h3>
+              <h3 class="font-bold">Custom Itineraries</h3>
             </div>
             <div class="card-back">
-              <p>Organize your days and activities with ease.</p>
+              <p class="font-bold text-center">
+                Organize your days and activities with ease.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section id="image-slider">
-      <h2>Explore Our Camping Destinations</h2>
+      <h2 class="text-3xl font-semibold text-center mb-6">
+        Explore Our Camping Destinations
+      </h2>
       <div class="slider">
         <div class="slides">
           <div class="slide">
@@ -236,14 +396,16 @@
       </div>
     </section>
 
-    <section id="testimonials">
-      <h2>What Our Users Say</h2>
+    <section id="testimonials" class="py-12 bg-gray-100">
+      <h2 class="text-3xl font-semibold text-center mb-6">
+        What Our Users Say
+      </h2>
       <div class="testimonial-cards">
         <div class="testimonial-card">
           <div class="user-photo-container">
             <img src="images/avatar1.png" alt="User 1" class="user-photo" />
           </div>
-          <h3>Jane Doe</h3>
+          <h3 class="font-bold">Jane Doe</h3>
           <p>
             "This app made my camping trip a breeze! I usually struggle with
             organizing all the details and often end up forgetting something
@@ -261,7 +423,7 @@
           <div class="user-photo-container">
             <img src="images/avatar2.png" alt="User 2" class="user-photo" />
           </div>
-          <h3>John Smith</h3>
+          <h3 class="font-bold">John Smith</h3>
           <p>
             "A must-have for all outdoor enthusiasts. As an avid camper, I've
             tried multiple planning tools, but nothing comes close to the
@@ -279,7 +441,7 @@
           <div class="user-photo-container">
             <img src="images/avatar3.png" alt="User 3" class="user-photo" />
           </div>
-          <h3>Emily Johnson</h3>
+          <h3 class="font-bold">Emily Johnson</h3>
           <p>
             "The Camping Trip Planner is a game-changer for anyone who loves the
             outdoors. I loved how I could easily create a trip, input all the
@@ -303,13 +465,16 @@
       </div>
     </section>
 
-    <footer id="footer">
+    <footer id="footer" class="bg-blue-600 text-white py-6 text-center">
       <p>&copy; 2024 Camping Trip Planner</p>
       <p>
-        Follow us on <a href="#">Facebook</a> | <a href="#">Instagram</a> |
-        <a href="#">Twitter</a>
+        Follow us on
+        <a href="#" class="hover:underline">Facebook</a> |
+        <a href="#" class="hover:underline">Instagram</a> |
+        <a href="#" class="hover:underline">Twitter</a>
       </p>
     </footer>
+
     <script src="main.js"></script>
   </body>
 </html>
