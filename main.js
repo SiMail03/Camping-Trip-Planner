@@ -194,3 +194,23 @@ function deleteTrip(tripName, button) {
   };
   xhr.send(JSON.stringify({ tripName }));
 }
+
+// Select the dark mode toggle checkbox
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+// Add an event listener to the toggle
+darkModeToggle.addEventListener("change", () => {
+  // Toggle the 'dark' class on the <html> element
+  document.documentElement.classList.toggle("dark", darkModeToggle.checked);
+});
+
+// Optional: Persist dark mode state using localStorage
+document.addEventListener("DOMContentLoaded", () => {
+  const isDarkMode = localStorage.getItem("darkMode") === "true";
+  darkModeToggle.checked = isDarkMode;
+  document.documentElement.classList.toggle("dark", isDarkMode);
+});
+
+darkModeToggle.addEventListener("change", () => {
+  localStorage.setItem("darkMode", darkModeToggle.checked);
+});

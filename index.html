@@ -12,8 +12,14 @@
   </head>
   <body>
     <header id="header">
-      <div id="navbar">
-        <ul>
+      <nav>
+        <ul class="flex space-x-4">
+          <div class="theme-switch">
+            <span class="icon sun">☀️</span>
+            <input type="checkbox" id="dark-mode-toggle" />
+            <label for="dark-mode-toggle" class="switch"></label>
+            <span class="icon moon">🌙</span>
+          </div>
           <li><a href="#background">Home</a></li>
           <li><a href="#plan-trip">Plan A Trip</a></li>
           <li><a href="#features">Why Choose Us?</a></li>
@@ -22,12 +28,12 @@
           <li><a href="#data">Trip Data</a></li>
           <li><a href="#weather">Weather</a></li>
         </ul>
-      </div>
+      </nav>
     </header>
 
     <div
       id="background"
-      class="relative h-screen bg-cover bg-center"
+      class="relative h-screen bg-cover bg-center dark:bg-gray-800"
       style="background-image: url('images/background.jpg')"
     >
       <img src="images/background.jpg" alt="background" />
@@ -46,9 +52,14 @@
         </div>
       </div>
     </div>
-    <section id="plan-trip" class="py-12">
-      <h2 class="text-3xl font-semibold text-center mb-6">Plan Your Trip</h2>
-      <form id="trip-form" class="max-w-3xl mx-auto space-y-4">
+    <section id="plan-trip" class="dark:bg-gray-800 dark:text-gray-300">
+      <h2 class="text-3xl font-semibold text-center mb-6 pt-10">
+        Plan Your Trip
+      </h2>
+      <form
+        id="trip-form"
+        class="trip-form max-w-3xl mx-auto space-y-4 dark:bg-gray-800 dark:text-white"
+      >
         <div class="space-y-2">
           <label for="trip-name" class="block text-lg">Trip Name:</label>
           <input
@@ -299,9 +310,9 @@
       </form>
     </section>
 
-    <section id="data">
+    <section id="data" class="dark:bg-gray-800 dark:text-gray-300 pt-10">
       <h2 class="text-3xl font-semibold text-center mb-6">Trip Data</h2>
-      <table>
+      <table class="table-auto w-full">
         <thead>
           <tr>
             <th>Trip Name</th>
@@ -319,7 +330,10 @@
       </table>
     </section>
 
-    <section id="features" class="py-12 bg-gray-50">
+    <div
+      id="features"
+      class="py-20 bg-gray-50 dark:bg-gray-800 dark:text-gray-300"
+    >
       <h2 class="text-3xl font-semibold text-center mb-6">Why Choose Us?</h2>
       <div class="cards">
         <div class="card card-1">
@@ -362,8 +376,8 @@
           </div>
         </div>
       </div>
-    </section>
-    <section id="image-slider">
+    </div>
+    <section id="image-slider" class="dark:bg-gray-800 dark:text-gray-300">
       <h2 class="text-3xl font-semibold text-center mb-6">
         Explore Our Camping Destinations
       </h2>
@@ -396,17 +410,20 @@
       </div>
     </section>
 
-    <section id="testimonials" class="py-12 bg-gray-100">
+    <section
+      id="testimonials"
+      class="py-12 bg-gray-100 dark:bg-gray-800 dark:text-gray-300"
+    >
       <h2 class="text-3xl font-semibold text-center mb-6">
         What Our Users Say
       </h2>
       <div class="testimonial-cards">
-        <div class="testimonial-card">
+        <div class="testimonial-card dark:bg-gray-800 dark:text-gray-200">
           <div class="user-photo-container">
             <img src="images/avatar1.png" alt="User 1" class="user-photo" />
           </div>
-          <h3 class="font-bold">Jane Doe</h3>
-          <p>
+          <h3 class="font-bold dark:text-white">Jane Doe</h3>
+          <p class="dark:text-white">
             "This app made my camping trip a breeze! I usually struggle with
             organizing all the details and often end up forgetting something
             important!"
@@ -419,7 +436,7 @@
             <span class="fa fa-star"></span>
           </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card dark:bg-gray-800 dark:text-gray-200">
           <div class="user-photo-container">
             <img src="images/avatar2.png" alt="User 2" class="user-photo" />
           </div>
@@ -437,7 +454,7 @@
             <span class="fa fa-star"></span>
           </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card dark:bg-gray-800 dark:text-gray-200">
           <div class="user-photo-container">
             <img src="images/avatar3.png" alt="User 3" class="user-photo" />
           </div>

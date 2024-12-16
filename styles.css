@@ -17,7 +17,7 @@ body {
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   position: fixed;
   width: 100%;
   top: 0;
@@ -42,6 +42,54 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 800;
+}
+
+/* Container for the switch */
+.theme-switch {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  margin: 20px;
+}
+
+/* Hide the checkbox */
+.theme-switch input[type="checkbox"] {
+  display: none;
+}
+
+/* The switch label */
+.switch {
+  width: 50px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* The slider (circle) */
+.switch::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease, background 0.3s ease;
+}
+
+/* Dark mode styles when checked */
+input[type="checkbox"]:checked + .switch {
+  background: #4caf50; /* Light green for active state */
+}
+
+input[type="checkbox"]:checked + .switch::after {
+  left: 25px; /* Move the slider to the right */
+  background: #fff; /* White slider */
 }
 
 #background {
@@ -185,7 +233,6 @@ body {
 
 #plan-trip {
   padding: 50px 0;
-  background-color: #f5f5f5;
   text-align: center;
 }
 
@@ -197,7 +244,6 @@ body {
 form {
   max-width: 600px;
   margin: 0 auto;
-  background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -260,10 +306,12 @@ form button:hover {
   background-color: #019578;
 }
 
+#trip-data tr td {
+  color: black;
+}
+
 /* New styles for "Why Choose Us?" section */
 #features {
-  padding: 50px 0;
-  background-color: #f5f5f5;
   text-align: center;
 }
 
@@ -352,7 +400,6 @@ form button:hover {
 
 #image-slider {
   padding: 50px 0;
-  background-color: #f5f5f5;
   text-align: center;
 }
 
@@ -438,7 +485,6 @@ form button:hover {
 
 #testimonials {
   padding: 50px 0;
-  background-color: #e9ecef;
   text-align: center;
 }
 
@@ -488,13 +534,11 @@ form button:hover {
 .testimonial-card h3 {
   font-size: 1.2rem;
   margin: 110px 0 10px; /* Adjust margin to accommodate the user photo */
-  color: rgba(5, 20, 44, 0.9);
 }
 
 .testimonial-card p {
   font-style: italic;
   font-size: 1.5rem;
-  color: #555;
 }
 
 .checked {
@@ -504,7 +548,6 @@ form button:hover {
 /* Styles for the table in the Trip Data section */
 #data {
   padding: 50px;
-  background-color: #e9ecef;
 }
 
 #data h2 {
