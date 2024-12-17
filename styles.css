@@ -44,6 +44,16 @@ body {
   font-weight: 800;
 }
 
+/* Hide navbar by moving it up */
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Ensure smooth transitions */
+#header {
+  transition: transform 0.3s ease-in-out;
+}
+
 /* Container for the switch */
 .theme-switch {
   display: flex;
@@ -452,29 +462,32 @@ form button:hover {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
+  top: 45%;
+  width: 50px;
+  height: 55px;
+  padding: 15px;
   color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
   user-select: none;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.582);
 }
 
 .prev {
+  margin-left: 20px;
   left: 0;
-  border-radius: 0 3px 3px 0;
 }
 
 .next {
+  margin-right: 20px;
   right: 0;
-  border-radius: 3px 0 0 3px;
 }
 
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: gray;
   color: white;
 }
 
@@ -613,7 +626,6 @@ tbody td {
   padding: 50px 0;
   background-color: #f5f5f5;
   text-align: center;
-  background: url("images/weather-bg.jpg") no-repeat center center/cover;
 }
 
 #weather h2 {

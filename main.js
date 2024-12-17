@@ -1,3 +1,22 @@
+let lastScrollY = window.scrollY;
+
+const navbar = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    // Scrolling down
+    navbar.classList.add("header-hidden");
+  } else {
+    // Scrolling up
+    navbar.classList.remove("header-hidden");
+  }
+
+  // Update the lastScrollY
+  lastScrollY = currentScrollY;
+});
+
 // JavaScript for fetching weather data and updating the weather section
 const updateWeather = () => {
   fetch("http://localhost:3000/weather")
@@ -6,6 +25,57 @@ const updateWeather = () => {
       const weatherInfo = document.getElementById("weather-info");
       weatherInfo.innerHTML = ""; // Clear existing content
 
+      // Map weather codes to descriptions and icons
+      const weatherDescriptions = {
+        1000: "Clear",
+        1100: "Mostly Clear",
+        1101: "Partly Cloudy",
+        1102: "Mostly Cloudy",
+        1001: "Cloudy",
+        2000: "Fog",
+        4000: "Drizzle",
+        4001: "Rain",
+        4200: "Light Rain",
+        4201: "Heavy Rain",
+        5000: "Snow",
+        5001: "Flurries",
+        5100: "Light Snow",
+        5101: "Heavy Snow",
+        6000: "Freezing Drizzle",
+        6001: "Freezing Rain",
+        6200: "Light Freezing Rain",
+        6201: "Heavy Freezing Rain",
+        7000: "Ice Pellets",
+        7101: "Heavy Ice Pellets",
+        7102: "Light Ice Pellets",
+        8000: "Thunderstorm",
+      };
+
+      const weatherIcons = {
+        1000: "☀️", // Clear
+        1100: "🌤️", // Mostly Clear
+        1101: "⛅", // Partly Cloudy
+        1102: "🌥️", // Mostly Cloudy
+        1001: "☁️", // Cloudy
+        2000: "🌫️", // Fog
+        4000: "🌦️", // Drizzle
+        4001: "🌧️", // Rain
+        4200: "🌦️", // Light Rain
+        4201: "🌧️", // Heavy Rain
+        5000: "❄️", // Snow
+        5001: "🌨️", // Flurries
+        5100: "🌨️", // Light Snow
+        5101: "❄️", // Heavy Snow
+        6000: "🌧️", // Freezing Drizzle
+        6001: "🌧️", // Freezing Rain
+        6200: "🌧️", // Light Freezing Rain
+        6201: "🌧️", // Heavy Freezing Rain
+        7000: "🧊", // Ice Pellets
+        7101: "🧊", // Heavy Ice Pellets
+        7102: "🧊", // Light Ice Pellets
+        8000: "⛈️", // Thunderstorm
+      };
+
       // Loop through the next 5 days
       for (let i = 0; i < 5; i++) {
         const day = data.data.timelines[0].intervals[i];
@@ -13,38 +83,13 @@ const updateWeather = () => {
         const temp = day.values.temperature;
         const weatherCode = day.values.weatherCode;
 
-        // Map weather codes to descriptions (expand as needed)
-        const weatherDescriptions = {
-          1000: "Clear",
-          1100: "Mostly Clear",
-          1101: "Partly Cloudy",
-          1102: "Mostly Cloudy",
-          1001: "Cloudy",
-          2000: "Fog",
-          4000: "Drizzle",
-          4001: "Rain",
-          4200: "Light Rain",
-          4201: "Heavy Rain",
-          5000: "Snow",
-          5001: "Flurries",
-          5100: "Light Snow",
-          5101: "Heavy Snow",
-          6000: "Freezing Drizzle",
-          6001: "Freezing Rain",
-          6200: "Light Freezing Rain",
-          6201: "Heavy Freezing Rain",
-          7000: "Ice Pellets",
-          7101: "Heavy Ice Pellets",
-          7102: "Light Ice Pellets",
-          8000: "Thunderstorm",
-        };
-
         const description = weatherDescriptions[weatherCode] || "Unknown";
+        const icon = weatherIcons[weatherCode] || "❓";
 
         weatherInfo.innerHTML += `
-          <div class="weather-day">
+          <div class="weather-day dark:bg-dark-gray">
             <p><strong>${date}</strong></p>
-            <p>${temp}°C, ${description}</p>
+            <p>${icon} ${temp}°C, ${description}</p>
           </div>
         `;
       }
@@ -88,11 +133,6 @@ const plusSlides = (n) => {
 
 // Initial display
 showSlides();
-
-// Automatic slide transition
-setInterval(() => {
-  plusSlides(1);
-}, 5000); // Change slide every 5 seconds
 
 document
   .getElementById("trip-form")

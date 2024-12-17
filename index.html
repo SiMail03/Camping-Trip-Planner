@@ -12,7 +12,7 @@
   </head>
   <body>
     <header id="header">
-      <nav>
+      <nav id="navbar">
         <ul class="flex space-x-4">
           <div class="theme-switch">
             <span class="icon sun">☀️</span>
@@ -20,20 +20,34 @@
             <label for="dark-mode-toggle" class="switch"></label>
             <span class="icon moon">🌙</span>
           </div>
-          <li><a href="#background">Home</a></li>
-          <li><a href="#plan-trip">Plan A Trip</a></li>
-          <li><a href="#features">Why Choose Us?</a></li>
-          <li><a href="#image-slider">Camping Destinations</a></li>
-          <li><a href="#testimonials">What Our Users Say</a></li>
-          <li><a href="#data">Trip Data</a></li>
-          <li><a href="#weather">Weather</a></li>
+          <li class="hover:bg-blue-950 transition duration-300 rounded-md">
+            <a href="#background">Home</a>
+          </li>
+          <li class="hover:bg-blue-950 transition duration-300 rounded-md">
+            <a href="#plan-trip">Plan A Trip</a>
+          </li>
+          <li class="hover:bg-blue-950 transition duration-300 rounded-md">
+            <a href="#features">Why Choose Us?</a>
+          </li>
+          <li class="hover:bg-blue-950 transition duration-300 rounded-md">
+            <a href="#image-slider">Camping Destinations</a>
+          </li>
+          <li class="hover:bg-blue-950 transition duration-300 rounded-md">
+            <a href="#testimonials">Testimonials</a>
+          </li>
+          <li class="hover:bg-blue-950 transition duration-300 rounded-md">
+            <a href="#data">Trip Data</a>
+          </li>
+          <li class="hover:bg-blue-950 transition duration-300 rounded-md">
+            <a href="#weather">Weather</a>
+          </li>
         </ul>
       </nav>
     </header>
 
     <div
       id="background"
-      class="relative h-screen bg-cover bg-center dark:bg-gray-800"
+      class="relative h-screen bg-cover bg-center dark:bg-dark-gray"
       style="background-image: url('images/background.jpg')"
     >
       <img src="images/background.jpg" alt="background" />
@@ -52,16 +66,18 @@
         </div>
       </div>
     </div>
-    <section id="plan-trip" class="dark:bg-gray-800 dark:text-gray-300">
+    <section id="plan-trip" class="dark:bg-dark-gray dark:text-gray-300">
       <h2 class="text-3xl font-semibold text-center mb-6 pt-10">
         Plan Your Trip
       </h2>
       <form
         id="trip-form"
-        class="trip-form max-w-3xl mx-auto space-y-4 dark:bg-gray-800 dark:text-white"
+        class="trip-form max-w-3xl mx-auto space-y-4 dark:bg-dark-gray dark:text-white"
       >
         <div class="space-y-2">
-          <label for="trip-name" class="block text-lg">Trip Name:</label>
+          <label for="trip-name" class="block text-lg dark:text-gray-300"
+            >Trip Name:</label
+          >
           <input
             type="text"
             id="trip-name"
@@ -71,17 +87,21 @@
           />
         </div>
         <div class="space-y-2">
-          <label for="trip-date" class="block text-lg">Date:</label>
+          <label for="trip-date" class="block text-lg dark:text-gray-300"
+            >Date:</label
+          >
           <input
             type="date"
             id="trip-date"
             name="trip-date"
             required
-            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-black"
           />
         </div>
         <div class="space-y-2">
-          <label for="trip-location" class="block text-lg">Location:</label>
+          <label for="trip-location" class="block text-lg dark:text-gray-300"
+            >Location:</label
+          >
           <input
             type="text"
             id="trip-location"
@@ -91,7 +111,7 @@
           />
         </div>
         <div class="space-y-2">
-          <label for="trip-people" class="block text-lg"
+          <label for="trip-people" class="block text-lg dark:text-gray-300"
             >Number of People:</label
           >
           <input
@@ -99,14 +119,16 @@
             id="trip-people"
             name="trip-people"
             required
-            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-black"
           />
         </div>
         <div class="space-y-2">
-          <label for="camping-equipment" class="block text-lg"
+          <label
+            for="camping-equipment"
+            class="block text-lg font-semibold dark:text-gray-300"
             >Camping Equipment:</label
           >
-          <div class="space-y-1">
+          <div class="grid grid-cols-2 gap-2">
             <label class="flex items-center"
               ><input
                 type="checkbox"
@@ -290,6 +312,7 @@
             <!-- Repeat for other items -->
           </div>
         </div>
+
         <div class="space-y-2">
           <label for="trip-notes" class="block text-lg"
             >Additional Notes:</label
@@ -298,7 +321,7 @@
             id="trip-notes"
             name="trip-notes"
             rows="4"
-            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border-2 border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-black"
           ></textarea>
         </div>
         <button
@@ -310,7 +333,7 @@
       </form>
     </section>
 
-    <section id="data" class="dark:bg-gray-800 dark:text-gray-300 pt-10">
+    <section id="data" class="dark:bg-dark-gray dark:text-gray-300 pt-10">
       <h2 class="text-3xl font-semibold text-center mb-6">Trip Data</h2>
       <table class="table-auto w-full">
         <thead>
@@ -332,7 +355,7 @@
 
     <div
       id="features"
-      class="py-20 bg-gray-50 dark:bg-gray-800 dark:text-gray-300"
+      class="py-20 bg-gray-50 dark:bg-dark-gray dark:text-gray-300"
     >
       <h2 class="text-3xl font-semibold text-center mb-6">Why Choose Us?</h2>
       <div class="cards">
@@ -377,7 +400,7 @@
         </div>
       </div>
     </div>
-    <section id="image-slider" class="dark:bg-gray-800 dark:text-gray-300">
+    <section id="image-slider" class="dark:bg-dark-gray dark:text-gray-300">
       <h2 class="text-3xl font-semibold text-center mb-6">
         Explore Our Camping Destinations
       </h2>
@@ -412,13 +435,13 @@
 
     <section
       id="testimonials"
-      class="py-12 bg-gray-100 dark:bg-gray-800 dark:text-gray-300"
+      class="py-12 bg-gray-100 dark:bg-dark-gray dark:text-gray-300"
     >
       <h2 class="text-3xl font-semibold text-center mb-6">
         What Our Users Say
       </h2>
       <div class="testimonial-cards">
-        <div class="testimonial-card dark:bg-gray-800 dark:text-gray-200">
+        <div class="testimonial-card dark:bg-dark-gray dark:text-gray-200">
           <div class="user-photo-container">
             <img src="images/avatar1.png" alt="User 1" class="user-photo" />
           </div>
@@ -436,7 +459,7 @@
             <span class="fa fa-star"></span>
           </div>
         </div>
-        <div class="testimonial-card dark:bg-gray-800 dark:text-gray-200">
+        <div class="testimonial-card dark:bg-dark-gray dark:text-gray-200">
           <div class="user-photo-container">
             <img src="images/avatar2.png" alt="User 2" class="user-photo" />
           </div>
@@ -454,7 +477,7 @@
             <span class="fa fa-star"></span>
           </div>
         </div>
-        <div class="testimonial-card dark:bg-gray-800 dark:text-gray-200">
+        <div class="testimonial-card dark:bg-dark-gray dark:text-gray-200">
           <div class="user-photo-container">
             <img src="images/avatar3.png" alt="User 3" class="user-photo" />
           </div>
@@ -475,21 +498,39 @@
       </div>
     </section>
 
-    <section id="weather">
+    <section
+      id="weather"
+      class="dark:bg-[url('images/weather-night.jpg')] bg-[url('images/weather-bg.jpg')] dark:text-gray-200"
+    >
       <h2>Current Weather</h2>
       <div id="weather-info">
         <p>Loading weather data...</p>
       </div>
     </section>
 
-    <footer id="footer" class="bg-blue-600 text-white py-6 text-center">
-      <p>&copy; 2024 Camping Trip Planner</p>
-      <p>
-        Follow us on
-        <a href="#" class="hover:underline">Facebook</a> |
-        <a href="#" class="hover:underline">Instagram</a> |
-        <a href="#" class="hover:underline">Twitter</a>
-      </p>
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h3 class="text-xl font-bold">Contact Us</h3>
+          <p class="mt-2">Email: support@example.com</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold">Quick Links</h3>
+          <ul class="space-y-2 mt-2">
+            <li><a href="#features" class="hover:underline">Features</a></li>
+            <li>
+              <a href="#plan-trip" class="hover:underline">Plan a Trip</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold">Social Media</h3>
+          <div class="flex space-x-4 mt-2">
+            <a href="#" class="hover:text-blue-500">Facebook</a>
+            <a href="#" class="hover:text-blue-300">Twitter</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="main.js"></script>
